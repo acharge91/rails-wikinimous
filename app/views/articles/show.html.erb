@@ -1,0 +1,30 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <h1>Wikinimous</h1>
+    <p class="nav navbar-nav navbar-right">
+      <%= link_to "New Article", new_article_path %>
+    </p>
+  </div>
+</nav>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-8 col-sm-offset-2">
+      <h1><%= @article.title%>
+        <small>
+          <%=link_to "Edit this article", edit_article_path(@article)%>
+          <%= link_to "Delete",
+          article_path(@article),
+          method: :delete,
+          data: { confirm: "Are you sure?" } %>
+        </small>
+      </h1>
+      <hr>
+      <p><%= @article.content %></p>
+    </div>
+  </div>
+</div>
+
+
+
+<%= link_to "Back to articles", articles_path %>
